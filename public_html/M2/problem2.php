@@ -33,10 +33,12 @@ function sumValues($arr, $arrayNumber)
     // step 2: sum each value by ...
     // step 3: using ... to update how the output is presented
 
-
+    $total = 0;// fake example of setting the answer
 
     // Solve Challenge 2 here
     $modifiedTotal = "?";
+
+    $modifiedTotal = "0.00";// fake example of setting the answers
 
     // End Solution Edits
     echo "<p>Total Raw Value: {$total}</p>";
