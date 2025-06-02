@@ -33,11 +33,13 @@ function sumValues($arr, $arrayNumber)
     // step 2: sum using ...
     // step 3: assign to total
     // step 4: update presentation by ...
-    
 
+    $total = 1; // fake solution
 
     // Solve Challenge 2 here
     $modifiedTotal = "?";
+
+    $modifiedTotal = "1.00";//fake solution
 
     // End Solution Edits
     echo "<p>Total Raw Value: {$total}</p>";
