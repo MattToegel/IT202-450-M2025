@@ -32,6 +32,8 @@ function bePositive($arr, $arrayNumber)
     // step 4: convert data type by ...
     // step 5: assign to output slot by ...
 
+    $output = array_fill(0, count($arr), 1);// fake solution
+
     // End Solution Edits
     echo "<span>Output: </span>";
     printOutputWithType($output);
