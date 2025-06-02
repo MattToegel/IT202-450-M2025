@@ -28,7 +28,12 @@ function sumValues($arr, $arrayNumber)
     // Start Solution Edits
     // Solve Challenge 1 here
 
-
+    // mt85 06-01-2025
+    // step 1: iterate ...
+    // step 2: sum using ...
+    // step 3: assign to total
+    // step 4: update presentation by ...
+    
 
 
     // Solve Challenge 2 here
