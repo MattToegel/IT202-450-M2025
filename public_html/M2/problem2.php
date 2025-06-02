@@ -28,6 +28,10 @@ function sumValues($arr, $arrayNumber)
     // Start Solution Edits
     // Solve Challenge 1 here
 
+    // mt85 06-01-2025 using steps below to solve
+    // step 1: using ... to iterate the array
+    // step 2: sum each value by ...
+    // step 3: using ... to update how the output is presented
 
 
 
