@@ -25,6 +25,13 @@ function bePositive($arr, $arrayNumber)
     $output = array_fill(0, count($arr), null); // Initialize output array
     // Start Solution Edits
 
+    // mt85 06-01-2025 using below steps to solve challenges
+    // step 1: iterate through the values by ...
+    // step 2: using ... to check/convert to positive
+    // step 3: using ... to check data type
+    // step 4: using ... to convert to data type
+    // step 5: adding result to proper output slot by ...
+
 
     // End Solution Edits
     echo "<span>Output: </span>";
