@@ -33,7 +33,14 @@ function transformText($arr, $arrayNumber) {
     foreach ($arr as $index => $text) {
         // Start Solution Edits
 
-        
+        // mt85 06-01-2025 using below steps to solve challenges 1-4
+        // step 1: Using ... to remove non-alphanumeric values. Spaces are preserved because ...
+        // step 2: Using ... to convert casing to title case (it does ... to solve this)
+        // step 3: Using ... to trim the beginning and end, and ... to handle the duplicate spaces
+        // step 4: Using ... to find the middle 3, checking if the returned value doesn't include the first/last by ...
+
+        // step 5: assigning result of steps 1-3 to $placeholderForModifiedPhrase
+        // step 6: assigning result of step 4 to $placeholderForMiddleCharacters
 
         // End Solution Edits
         echo "<div>";
