@@ -28,6 +28,9 @@ function printOdds($arr, $arrayNumber)
     // step 2: during each iteration check if the value is odd using ...
     // step 3: keep the output in a single line via ...
 
+    // pretend code solution goes here
+    echo "[ result here ]";
+
     // End Solution Edits
     echo "<br>______________________________________<br>";
 }
