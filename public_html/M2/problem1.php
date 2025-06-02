@@ -23,6 +23,11 @@ function printOdds($arr, $arrayNumber)
     echo "Output Array: ";
     // Start Solution Edits
 
+    // mt85 06-01-2025
+
+    // step 1: using ... to iterate the $arr
+    // step 2: using ... to check odds
+    // step 3: using ... to output in a single comma separated line
 
     // End Solution Edits
     echo "<br>______________________________________<br>";
