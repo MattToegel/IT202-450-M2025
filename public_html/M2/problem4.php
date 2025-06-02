@@ -42,7 +42,7 @@ function transformText($arr, $arrayNumber) {
         // step 5: assigning result of steps 1-3 to $placeholderForModifiedPhrase
         // step 6: assigning result of step 4 to $placeholderForMiddleCharacters
 
-        $placeholderForModifiedPhrase = "Example";
+        $placeholderForModifiedPhrase = $text;
         $placeholderForMiddleCharacters = "Example for the other";
 
         // End Solution Edits
