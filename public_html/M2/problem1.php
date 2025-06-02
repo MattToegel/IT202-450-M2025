@@ -29,6 +29,9 @@ function printOdds($arr, $arrayNumber)
     // step 2: using ... to check odds
     // step 3: using ... to output in a single comma separated line
 
+    // fake solution
+    echo "my comma array of odds";
+
     // End Solution Edits
     echo "<br>______________________________________<br>";
 }
