@@ -42,6 +42,9 @@ function transformText($arr, $arrayNumber) {
         // step 5: using ... to get middle of word and doing ... to get up to the other 2 letter. Using ... to ignore the first/last char
         // step 6: using ... to handle scenario of insufficient characters
 
+        $placeholderForModifiedPhrase = $text; // fake solution
+        $placeholderForMiddleCharacters = $text; // fake solution
+
         // End Solution Edits
         echo "<div>";
         printStringTransformations($index, $placeholderForModifiedPhrase, $placeholderForMiddleCharacters);
