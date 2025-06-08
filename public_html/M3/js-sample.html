@@ -1,0 +1,33 @@
+
+<header id="header">Header</header>
+<p>This is cool</p>
+<p class="highlight">This is yellow</p>
+<p>Something</p>
+<p class="highlight">Another yellow</p>
+<input name="name">
+
+<script>
+    /* Select by ID */
+const header = document.getElementById("header");
+header.style.color = "blue"; // Changes text color to blue
+
+/* Select by class */
+const highlights = document.getElementsByClassName("highlight");
+Array.from(highlights).forEach(el => el.style.backgroundColor = "yellow"); // Adds yellow background
+
+/* Select by name attribute */
+const inputs = document.getElementsByName("name");
+inputs.forEach(input => input.placeholder = "Enter your name"); // Sets placeholder text
+
+/* Select by tag name */
+const paragraphs = document.getElementsByTagName("p");
+Array.from(paragraphs).forEach(el => el.style.fontSize = "18px"); // Changes font size
+
+/* Select the first matching element using querySelector */
+const firstHighlight = document.querySelector(".highlight");
+firstHighlight.style.border = "1px solid red"; // Adds a red border
+
+/* Select all matching elements using querySelectorAll */
+const allParagraphs = document.querySelectorAll("p");
+allParagraphs.forEach(el => el.style.lineHeight = "1.5"); // Adjusts line height
+</script>

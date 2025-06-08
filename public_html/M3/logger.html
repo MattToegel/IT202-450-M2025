@@ -1,0 +1,21 @@
+<div id="key"></div>
+<div id="story"></div>
+<script>
+    //binds the onkeydown event to the document body
+    document.body.addEventListener("keydown", logme);
+   function logme(event){
+       //see what type of event we get
+       console.log(event);
+       //find and update our container with the key and code
+       document.getElementById("key")
+       .innerText = "Key: " + event.key + " Code:  " + event.code;
+       //demo how we can chain these together (note space isn't recorded)
+       let k = event.key;
+       if(event.code == "Space"){
+        k = " ";
+        console.log("I'm a space");
+       }
+       document.getElementById("story").innerText += k;
+       //document.getElementsByTagName("input")[0].value = "";
+   }
+</script>
