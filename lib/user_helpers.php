@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Check if the user is logged in and optionally redirect to $destination.
  * @param bool $redirect Whether to redirect if not logged in.
@@ -20,11 +21,22 @@ function is_logged_in($redirect = false, $destination = "login.php")
                 $BASE_PATH .= "/";
             }
             $path = $BASE_PATH . $path; // prepend the base path
-        }// the else part is for absolute paths
+        } // the else part is for absolute paths
 
         die(header("Location: $path"));
     }
     return $isLoggedIn;
+}
+function has_role($role)
+{
+    if (is_logged_in() && isset($_SESSION["user"]["roles"])) {
+        foreach ($_SESSION["user"]["roles"] as $r) {
+            if ($r["name"] === $role) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 function get_username()
 {
@@ -36,7 +48,8 @@ function get_username()
 /**
  * Returns the current user's email or empty string
  */
-function get_user_email() {
+function get_user_email()
+{
     if (is_logged_in()) { //we need to check for login first because "user" key may not exist
         return se($_SESSION["user"], "email", "", false);
     }
@@ -45,7 +58,8 @@ function get_user_email() {
 /**
  * Returns the current user's id or -1
  */
-function get_user_id() {
+function get_user_id()
+{
     if (is_logged_in()) { //we need to check for login first because "user" key may not exist
         return se($_SESSION["user"], "id", false, false);
     }
