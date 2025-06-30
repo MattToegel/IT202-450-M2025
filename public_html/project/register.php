@@ -26,7 +26,12 @@ require(__DIR__ . "/../../partials/nav.php");
         //TODO 1: implement JavaScript validation (you'll do this on your own towards the end of Milestone1)
         //ensure it returns false for an error and true for success
 
-        return true;
+        let isValid = true;
+        if(!isValidPassword(pw)){
+            flash("Password must be at least 8 characters", "warning");
+            isValid = false;
+        }
+        return isValid;
     }
 </script>
 <?php
