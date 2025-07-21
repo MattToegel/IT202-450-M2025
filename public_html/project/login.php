@@ -1,30 +1,45 @@
 <?php
 require(__DIR__ . "/../../partials/nav.php");
+$form = [
+    [
+        "type" => "text",
+        "id" => "email",
+        "name" => "email",
+        "label" => "Email/Username",
+        "value" => se($_POST, "email", "", false),
+        "rules" => ["required" => true]
+    ],
+    [
+        "type" => "password",
+        "id" => "pw",
+        "name" => "password",
+        "label" => "Password",
+        "rules" => ["required" => true, "minlength" => 8]
+    ]
+];
 ?>
-<h3>Login</h3>
-<form onsubmit="return validate(this)" method="POST">
-    <div>
-        <label for="email">Email or Username</label>
-        <input id="email" type="text" name="email" required />
-    </div>
-    <div>
-        <label for="pw">Password</label>
-        <input type="password" id="pw" name="password" required minlength="8" />
-    </div>
-    <input type="submit" value="Login" />
-</form>
-<script>
-    function validate(form) {
-        //TODO 1: implement JavaScript validation (you'll do this on your own towards the end of Milestone1)
-        //ensure it returns false for an error and true for success
-        let isValid = true;
-        if(!isValidPassword(pw)){
-            flash("Password must be at least 8 characters", "warning");
-            isValid = false;
+<div class="container-fluid">
+    <h3>Login</h3>
+    <form onsubmit="return validate(this)" method="POST">
+        <?php foreach ($form as $field): ?>
+            <?php render_input($field); ?>
+        <?php endforeach; ?>
+        <?php render_button(["text" => "Login", "type" => "submit"]); ?>
+    </form>
+    <script>
+        function validate(form) {
+            //TODO 1: implement JavaScript validation (you'll do this on your own towards the end of Milestone1)
+            //ensure it returns false for an error and true for success
+            let isValid = true;
+            let pw = form.password.value;
+            if (!isValidPassword(pw)) {
+                flash("Password must be at least 8 characters", "warning");
+                isValid = false;
+            }
+            return isValid;
         }
-        return isValid;
-    }
-</script>
+    </script>
+</div>
 <?php
 //TODO 2: add PHP Code
 if (isset($_POST["email"], $_POST["password"])) {

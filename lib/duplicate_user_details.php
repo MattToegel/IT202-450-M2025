@@ -1,11 +1,10 @@
 <?php
-function users_check_duplicate($errorInfo)
-{
+function users_check_duplicate($errorInfo) {
     if (property_exists($errorInfo, 'errorInfo')) {
         // extract errorInfo in case a PDOException is passed
         $errorInfo = $errorInfo->errorInfo;
     }
-    if( !is_array($errorInfo) || count($errorInfo) < 3) {
+    if (!is_array($errorInfo) || count($errorInfo) < 3) {
         flash("Unknown error occurred", "danger");
         error_log("Error interpreting PDOException message: " . var_export($errorInfo, true));
         return;

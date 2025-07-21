@@ -4,7 +4,7 @@ require(__DIR__ . "/../../../partials/nav.php");
 
 if (!has_role("Admin")) {
     flash("You don't have permission to view this page", "warning");
-    die(header("Location:" .get_url("landing.php")));
+    die(header("Location:" . get_url("landing.php")));
 }
 ?>
 
@@ -48,7 +48,7 @@ if (isset($_POST["action"])) {
 
         error_log("Transformed companies " . var_export($companies, true));
         try {
-            $r = insert("IT202-M25-Companies", $companies,["debug"=>true,"update_duplicate"=>true]);
+            $r = insert("IT202-M25-Companies", $companies, ["debug" => true, "update_duplicate" => true]);
             if ($r["lastInsertId"] || $r["rowCount"] > 0) {
                 flash("Inserted record " . $r["lastInsertId"], "success");
             } else {
@@ -57,8 +57,7 @@ if (isset($_POST["action"])) {
         } catch (PDOException $e) {
             error_log("Something broke with the query" . var_export($e, true));
             flash("An error occurred", "danger");
-        }
-        catch(Exception $e) {
+        } catch (Exception $e) {
             error_log("Something broke with the query" . var_export($e, true));
             flash("An error occurred: " . $e->getMessage(), "danger");
         }
@@ -67,10 +66,48 @@ if (isset($_POST["action"])) {
     }
 }
 
-//TODO handle manual create stock
+// represent form as data
+$form = [
+    [
+        "type" => "text",
+        "id" => "symbol",
+        "name" => "symbol",
+        "label" => "Company Symbol",
+        "rules" => ["required" => true]
+    ],
+    [
+        "type" => "text",
+        "id" => "name",
+        "name" => "name",
+        "label" => "Company Name",
+        "rules" => ["required" => true]
+    ],
+    [
+        "type" => "text",
+        "id" => "type",
+        "name" => "type",
+        "label" => "Company Type",
+        "rules" => ["required" => true]
+    ],
+    [
+        "type" => "text",
+        "id" => "region",
+        "name" => "region",
+        "label" => "Company Region",
+        "rules" => ["required" => true]
+    ],
+    [
+        "type" => "text",
+        "id" => "currency",
+        "name" => "currency",
+        "label" => "Company Currency",
+        "rules" => ["required" => true, "maxlength" => 4]
+    ]
+];
+
 ?>
 <div class="container-fluid">
-    <h3>Create or Fetch Stock</h3>
+    <h3>Create or Fetch Company</h3>
     <ul class="nav nav-tabs">
         <li class="nav-item">
             <a class="nav-link bg-success" href="#" onclick="switchTab('create')">Fetch</a>
@@ -81,39 +118,20 @@ if (isset($_POST["action"])) {
     </ul>
     <div id="fetch" class="tab-target">
         <form method="POST">
-            <div>
-                <label for="keyword">Company keyword</label>
-                <input type="search" name="keyword" id="keyword" placeholder="Company keyword" required>
-            </div>
+            <?php render_input(["type" => "text", "name" => "keyword", "id" => "keyword", "label" => "Company keyword", "rules" => ["required" => true]]); ?>
             <input type="hidden" name="action" value="fetch">
-            <input type="submit" value="Fetch" class="btn btn-primary">
+            <?php render_button(["text" => "Fetch", "type" => "submit"]); ?>
         </form>
     </div>
     <div id="create" style="display: none;" class="tab-target">
-        <form method="POST">
-            <div class="mb-3">
-                <label for="symbol">Company Symbol</label>
-                <input type="text" name="symbol" id="symbol" placeholder="Company Symbol" required>
-            </div>
-            <div class="mb-3">
-                <label for="name">Company Name</label>
-                <input type="text" name="name" id="name" placeholder="Company Name" required>
-            </div>
-            <div class="mb-3">
-                <label for="type">Company Type</label>
-                <input type="text" name="type" id="type" placeholder="Company Type" required>
-            </div>
-            <div class="mb-3">
-                <label for="region">Company Region</label>
-                <input type="text" name="region" id="region" placeholder="Company Region" required>
-            </div>
-            <div class="mb-3">
-                <label for="currency">Company Currency</label>
-                <input type="text" maxlength="4" name="currency" id="currency" placeholder="Company Currency" required>
-            </div>
 
+        <form method="POST">
+            <?php foreach ($form as $field): ?>
+                <?php render_input($field); ?>
+            <?php endforeach; ?>
             <input type="hidden" name="action" value="create">
-            <input type="submit" value="Create" class="btn btn-primary">
+            <?php render_button(["text" => "Create", "type" => "submit"]); ?>
+
         </form>
     </div>
 </div>

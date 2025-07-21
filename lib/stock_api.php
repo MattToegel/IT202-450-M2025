@@ -11,8 +11,7 @@
 /**
  * Fetches the stock quote for a given symbol.
  */
-function fetch_quote($symbol)
-{
+function fetch_quote($symbol) {
     $data = ["function" => "GLOBAL_QUOTE", "symbol" => $symbol, "datatype" => "json"];
     $endpoint = "https://alpha-vantage.p.rapidapi.com/query";
     $isRapidAPI = true;
@@ -67,8 +66,7 @@ function fetch_quote($symbol)
     }
     return $transformedResult;
 }
-function search_companies($search)
-{
+function search_companies($search) {
     $data = ["function" => "SYMBOL_SEARCH", "keywords" => $search, "datatype" => "json"];
     $endpoint = "https://alpha-vantage.p.rapidapi.com/query";
     $isRapidAPI = true;
@@ -162,8 +160,7 @@ function search_companies($search)
     return $transformedResult;
 }
 
-function uppercaseSymbolCurrency($data)
-{
+function uppercaseSymbolCurrency($data) {
     if (!is_array($data)) {
         throw new InvalidArgumentException('$data must be an array');
     }

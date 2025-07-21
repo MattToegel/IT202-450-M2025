@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Safe Echo Function
  * - If given an array/object and a key, returns the value at that key (or $default if not set).
@@ -36,6 +37,6 @@ function se($v, $k = null, $default = "", $isEcho = true, $raw = false) {
     }
 }
 
-function safer_echo($v, $k = null, $default = "", $isEcho = true, $raw = false){
+function safer_echo($v, $k = null, $default = "", $isEcho = true, $raw = false) {
     return se($v, $k, $default, $isEcho, $raw);
 }

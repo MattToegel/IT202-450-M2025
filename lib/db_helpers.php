@@ -21,8 +21,7 @@
  * @author Matt Toegel
  * @version 0.3 04/12/2025
  */
-function insert($table_name, $data, $opts = ["debug" => false, "update_duplicate" => false, "columns_to_update" => []])
-{
+function insert($table_name, $data, $opts = ["debug" => false, "update_duplicate" => false, "columns_to_update" => []]) {
     if (!is_array($data)) {
         throw new InvalidArgumentException("Data must be an array");
     }
@@ -169,8 +168,7 @@ function update(
     array $data,
     array $whereKeys = ["id"],
     array $opts = ["debug" => false]
-): array
-{
+): array {
     if (empty($table_name)) {
         throw new InvalidArgumentException("Table name cannot be empty");
     }

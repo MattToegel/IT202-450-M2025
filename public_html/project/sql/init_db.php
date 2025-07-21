@@ -197,8 +197,7 @@ try {
     exit("Something went wrong");
 }
 
-function is_duplicate_warning($error)
-{
+function is_duplicate_warning($error) {
     // MySQL error code 1062 is duplicate entry, 1060 is duplicate column, 1061 is duplicate key name, 1068 is multiple primary key, etc.
     if (!is_array($error)) return false;
     if (isset($error[1]) && in_array($error[1], [1060, 1061, 1062, 1068])) return true;
@@ -290,7 +289,9 @@ function is_duplicate_warning($error)
 
 function rate_limit_check($limit = 10, $seconds = 60) {
     session_start();
-    if (!isset($_SESSION['db_tool_runs'])) { $_SESSION['db_tool_runs'] = []; }
+    if (!isset($_SESSION['db_tool_runs'])) {
+        $_SESSION['db_tool_runs'] = [];
+    }
     $_SESSION['db_tool_runs'] = array_filter(
         $_SESSION['db_tool_runs'],
         fn($ts) => $ts > time() - $seconds

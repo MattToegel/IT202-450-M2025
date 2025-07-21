@@ -7,9 +7,8 @@
  * @param string $msg The message text to display.
  * @param string $color The color of the message, defaults to "info".
  */
-function flash($msg = "", $color = "info")
-{
-    if(session_status() !== PHP_SESSION_ACTIVE){
+function flash($msg = "", $color = "info") {
+    if (session_status() !== PHP_SESSION_ACTIVE) {
         error_log("Flash messages require an active session.");
         return;
     }
@@ -27,9 +26,8 @@ function flash($msg = "", $color = "info")
  * @return array An array of flash messages, each containing 'text' and 'color'.
  * If no flash messages are set, an empty array is returned.
  */
-function getMessages()
-{
-    if(session_status() !== PHP_SESSION_ACTIVE){
+function getMessages() {
+    if (session_status() !== PHP_SESSION_ACTIVE) {
         error_log("Flash messages require an active session.");
         return [];
     }
